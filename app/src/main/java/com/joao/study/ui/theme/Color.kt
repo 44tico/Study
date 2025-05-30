@@ -2,10 +2,10 @@ package com.joao.study.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val Background = Color(0xfff121212)
+val BackgroundButton = Color(0Xff1A1A1A)
+val White50 = Color(0x80ffffff)
+val White30 = Color(0x4Dffffff)
+val White20 = Color(0x33ffffff)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val Gold = Color(0xffB29146)
