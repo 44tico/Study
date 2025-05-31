@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.joao.study.R
 
 @Composable
-fun Logo(function: () -> Unit) {
+fun Logo() {
     Icon(
         painter = painterResource(id = R.drawable.logo),
         contentDescription = null,

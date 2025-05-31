@@ -6,7 +6,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ComposableOpenTarget
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -18,6 +17,7 @@ import com.joao.study.ui.theme.White50
 
 @Composable
 fun DefaultTextField(
+    modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
     label: String,
@@ -39,7 +39,7 @@ fun DefaultTextField(
             unfocusedPlaceholderColor = White20,
             unfocusedTextColor = White50,
         ),
-        modifier = Modifier.width(320.dp),
+        modifier = modifier.width(320.dp),
         singleLine = true,
         shape = RoundedCornerShape(5.dp)
     )

@@ -20,7 +20,10 @@ import com.joao.study.ui.theme.BackgroundButton
 import com.joao.study.ui.theme.White30
 
 @Composable
-fun Options() {
+fun Options(
+    onGoogleClick: () -> Unit,
+    onPhoneClick: () -> Unit
+) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -33,7 +36,7 @@ fun Options() {
                 ),
             contentAlignment = Alignment.Center
         ) {
-            IconButton(onClick = { TODO() }) {
+            IconButton(onClick = onGoogleClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.google_icon),
                     contentDescription = null,
@@ -52,7 +55,7 @@ fun Options() {
                 ),
             contentAlignment = Alignment.Center
         ) {
-            IconButton(onClick = { TODO() }) {
+            IconButton(onClick = onPhoneClick) {
                 Icon(
                     painter = painterResource(id = R.drawable.phone_icon),
                     contentDescription = null,
