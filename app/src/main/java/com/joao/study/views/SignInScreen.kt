@@ -37,51 +37,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.util.fastCbrt
 import com.joao.study.R
+import com.joao.study.components.DefaultTextField
+import com.joao.study.components.Logo
+import com.joao.study.components.Options
 import com.joao.study.ui.theme.Background
 import com.joao.study.ui.theme.BackgroundButton
 import com.joao.study.ui.theme.Gold
 import com.joao.study.ui.theme.White50
 import com.joao.study.ui.theme.White30
 import com.joao.study.ui.theme.White20
-
-@Composable
-fun ForgotPasswordText(onSenhaClick: () -> Unit) {
-    Row {
-        Text(
-            text = "Esqueceu sua ",
-            color = Color.White
-        )
-
-        Text(
-            text = "senha",
-            color = Gold,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.clickable { onSenhaClick() }
-        )
-
-        Text(
-            text = "?",
-            color = Color.White
-        )
-    }
-}
-
-@Composable
-fun SignUp(onSignUpClick: () -> Unit) {
-    Row {
-        Text("Não tem uma conta?", color = Color.White)
-
-        Spacer(modifier = Modifier.width(4.dp))
-
-        Text(
-            text = "Cadastre-se",
-            color = Gold,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.clickable { onSignUpClick() }
-        )
-    }
-}
 
 @Composable
 fun SignInScreen(){
@@ -93,12 +59,8 @@ fun SignInScreen(){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            painter = painterResource(id = R.drawable.logo),
-            contentDescription = null,
-            tint = Color.Unspecified,
-            modifier = Modifier.size(100.dp)
-        )
+
+        Logo() {}
 
         Spacer(modifier = Modifier.height(25.dp))
 
@@ -111,46 +73,20 @@ fun SignInScreen(){
 
         Spacer(modifier = Modifier.height(25.dp))
 
-        OutlinedTextField(
+        DefaultTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("E-mail") },
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedLabelColor = White30,
-                focusedBorderColor = White30,
-                focusedPlaceholderColor = White20,
-                focusedTextColor = White50,
-                cursorColor = Gold,
-                unfocusedLabelColor = White30,
-                unfocusedBorderColor = White30,
-                unfocusedPlaceholderColor = White20,
-                unfocusedTextColor = White50,
-            ),
-            modifier = Modifier.width(320.dp),
-            singleLine = true,
-            shape = RoundedCornerShape(5.dp)
+            label = "E-mail",
+            isPassword = false
         )
 
         Spacer(modifier = Modifier.height(15.dp))
 
-        OutlinedTextField(
+        DefaultTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Senha") },
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedLabelColor = White30,
-                focusedBorderColor = White30,
-                focusedPlaceholderColor = White20,
-                focusedTextColor = White50,
-                cursorColor = Gold,
-                unfocusedLabelColor = White30,
-                unfocusedBorderColor = White30,
-                unfocusedPlaceholderColor = White20,
-                unfocusedTextColor = White50,
-            ),
-            singleLine = true,
-            modifier = Modifier.width(320.dp),
-            shape = RoundedCornerShape(5.dp)
+            label = "Senha:",
+            isPassword = true
         )
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -160,7 +96,22 @@ fun SignInScreen(){
             horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            ForgotPasswordText {}
+            Text(
+                text = "Esqueceu sua ",
+                color = Color.White
+            )
+
+            Text(
+                text = "senha",
+                color = Gold,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable { TODO() }
+            )
+
+            Text(
+                text = "?",
+                color = Color.White
+            )
         }
 
         Spacer(modifier = Modifier.height(25.dp))
@@ -180,52 +131,21 @@ fun SignInScreen(){
 
         Spacer(modifier = Modifier.height(15.dp))
 
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            Box(
-                modifier = Modifier.size(55.dp).background(color = BackgroundButton)
-                    .border(
-                        width = 2.dp,
-                        color = White30,
-                        shape = RoundedCornerShape(10.dp)
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                IconButton(onClick = { TODO() }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.google_icon),
-                        contentDescription = null,
-                        tint = Color.Unspecified,
-                        modifier = Modifier.size(20.dp)
-                    )
-                }
-            }
-
-            Box(
-                modifier = Modifier.size(55.dp).background(color = BackgroundButton)
-                    .border(
-                        width = 2.dp,
-                        color = White30,
-                        shape = RoundedCornerShape(10.dp)
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                IconButton(onClick = { TODO() }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.phone_icon),
-                        contentDescription = null,
-                        tint = Color.Unspecified,
-                        modifier = Modifier.size(25.dp)
-                    )
-                }
-            }
-        }
+        Options()
 
         Spacer(modifier = Modifier.height(25.dp))
 
         Row {
-            SignUp {}
+            Text("Não tem uma conta?", color = Color.White)
+
+            Spacer(modifier = Modifier.width(4.dp))
+
+            Text(
+                text = "Cadastre-se",
+                color = Gold,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable { TODO() }
+            )
         }
     }
 }
