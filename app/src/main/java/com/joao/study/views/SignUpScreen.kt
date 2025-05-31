@@ -35,6 +35,8 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.joao.study.components.DefaultTextField
 import com.joao.study.components.EnterButton
 import com.joao.study.components.Logo
@@ -43,7 +45,7 @@ import com.joao.study.ui.theme.Background
 import com.joao.study.ui.theme.Gold
 
 @Composable
-fun SignUpScreen() {
+fun SignUpScreen(navController: NavHostController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
@@ -148,16 +150,19 @@ fun SignUpScreen() {
                 text = "Entre",
                 color = Gold,
                 fontWeight = FontWeight.ExtraBold,
-                modifier = Modifier.clickable { TODO() }
+                modifier = Modifier.clickable {
+                    navController.navigate("sign_in")
+                }
             )
         }
     }
 }
 
-@Preview
+@Preview()
 @Composable
 fun SignUpScreenPreview() {
     Box(Modifier.fillMaxSize().background(Background)) {
-        SignUpScreen()
+        val navController = rememberNavController()
+        SignUpScreen(navController)
     }
 }

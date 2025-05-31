@@ -27,6 +27,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.joao.study.components.DefaultTextField
 import com.joao.study.components.EnterButton
 import com.joao.study.components.Logo
@@ -35,7 +37,7 @@ import com.joao.study.ui.theme.Background
 import com.joao.study.ui.theme.Gold
 
 @Composable
-fun SignInScreen(){
+fun SignInScreen(navController: NavHostController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -128,7 +130,9 @@ fun SignInScreen(){
                 text = "Cadastre-se",
                 color = Gold,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable { TODO() }
+                modifier = Modifier.clickable {
+                    navController.navigate("sign_up")
+                }
             )
         }
     }
@@ -138,6 +142,7 @@ fun SignInScreen(){
 @Composable
 fun SignInScreenPreview(){
     Box(Modifier.fillMaxSize().background(Background)) {
-        SignInScreen()
+        val navController = rememberNavController()
+        SignInScreen(navController)
     }
 }
