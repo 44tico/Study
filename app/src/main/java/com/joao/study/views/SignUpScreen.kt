@@ -142,14 +142,14 @@ fun SignUpScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(25.dp))
 
         Row {
-            Text("Já tem uma conta?", color = Color.White, fontWeight = FontWeight.ExtraBold)
+            Text("Já tem uma conta?", color = Color.White, fontWeight = FontWeight.Bold)
 
             Spacer(modifier = Modifier.width(4.dp))
 
             Text(
                 text = "Entre",
                 color = Gold,
-                fontWeight = FontWeight.ExtraBold,
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.clickable {
                     navController.navigate("sign_in")
                 }
